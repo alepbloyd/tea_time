@@ -9,4 +9,10 @@ RSpec.describe Customer, type: :model do
     it { should validate_presence_of :city }
     it { should validate_presence_of :state_ab }
   end
+
+  describe 'relationships' do
+    it { should have_many :customer_teas }
+    it { should have_many(:teas).through(:customer_teas)}
+  end
+
 end
