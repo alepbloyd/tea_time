@@ -15,15 +15,12 @@ ActiveRecord::Schema.define(version: 2022_10_31_235343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "customer_teas", force: :cascade do |t|
+  create_table "customer_subscriptions", force: :cascade do |t|
     t.bigint "customer_id"
-    t.bigint "tea_id"
-    t.string "title"
-    t.float "price"
-    t.integer "frequency"
+    t.bigint "subscription_id"
     t.boolean "status"
-    t.index ["customer_id"], name: "index_customer_teas_on_customer_id"
-    t.index ["tea_id"], name: "index_customer_teas_on_tea_id"
+    t.index ["customer_id"], name: "index_customer_subscriptions_on_customer_id"
+    t.index ["subscription_id"], name: "index_customer_subscriptions_on_subscription_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -37,6 +34,12 @@ ActiveRecord::Schema.define(version: 2022_10_31_235343) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "title"
+    t.float "price"
+    t.integer "frequency"
+  end
+
   create_table "teas", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -46,6 +49,6 @@ ActiveRecord::Schema.define(version: 2022_10_31_235343) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "customer_teas", "customers"
-  add_foreign_key "customer_teas", "teas"
+  add_foreign_key "customer_subscriptions", "customers"
+  add_foreign_key "customer_subscriptions", "subscriptions"
 end

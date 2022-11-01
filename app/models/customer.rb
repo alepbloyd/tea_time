@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
   validates :city, presence: true
   validates :state_ab, presence: true
 
-  has_many :customer_teas
-  has_many :teas, through: :customer_teas
+  has_many :customer_subscriptions
+  has_many :subscriptions, through: :customer_subscriptions
 
 end
