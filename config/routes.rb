@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post "/customers", to: "customers#create"
-      post "/subscription", to: "customer_subscriptions#create"
-      patch "/subscription", to: "customer_subscriptions#update"
+      post "/subscriptions", to: "customer_subscriptions#create"
+      patch "/subscriptions", to: "customer_subscriptions#update"
+
+      get "/subscriptions/:customer_id", to: "customer_subscriptions#index"
     end
   end
 
