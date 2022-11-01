@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_10_31_235343) do
   create_table "customer_subscriptions", force: :cascade do |t|
     t.bigint "customer_id"
     t.bigint "subscription_id"
-    t.boolean "status"
+    t.integer "status"
     t.index ["customer_id"], name: "index_customer_subscriptions_on_customer_id"
     t.index ["subscription_id"], name: "index_customer_subscriptions_on_subscription_id"
   end

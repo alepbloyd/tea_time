@@ -10,10 +10,24 @@ class Api::V1::CustomerSubscriptionsController < ApplicationController
     end
   end
 
+  def update
+    customer_subscription = CustomerSubscription.find_by(customer_id: subscription_status_params[:customer_id], subscription_id: subscription_status_params[:subscription_id])
+
+    if customer_subscription.status == 1
+      customer_subscription.update(status: 0)
+    else
+      customer_subscription.update(status: 1)
+    end
+  end
+
   private
 
   def customer_subscription_params
     params.require(:customer_subscription).permit(:customer_id, :subscription_id, :status)
+  end
+
+  def subscription_status_params
+    params.require(:subscription_status).permit(:customer_id, :subscription_id)
   end
 
 end
