@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Intro
 
-Things you may want to cover:
+This is a Rails API application, completed as an 8-hour-maximum takehome assessment for the Turing School of Software and Design's Module 4, and requirements for the assessment can be found here: [Take-Home Back End Prompt](https://mod4.turing.edu/projects/take_home/take_home_be)
 
-* Ruby version
+## Setup
 
-* System dependencies
+To begin, clone this repository to your local machine, and run:
 
-* Configuration
+`$ bundle`
 
-* Database creation
+to update and install gems/dependencies.
 
-* Database initialization
+## API Endpoints
 
-* How to run the test suite
+### Create a New Customer
 
-* Services (job queues, cache servers, search engines, etc.)
+To create a new customer, send a JSON `POST` request to `http://localhost:3000/api/v1/customers/` in the format:
 
-* Deployment instructions
+```json
+{
+    "first_name": "Jimmy",
+    "last_name": "Snakes",
+    "email": "jimmy_snakes@email.net",
+    "street_address": "123 Python St",
+    "city": "Reno",
+    "state_ab": "NV"
+}
+```
 
-* ...
+### Subscribe Customer
+
+To subscribe an existing customer to an existing subscription, send a JSON `POST` request to `http://localhost:3000/api/v1/subscriptions/` in the format:
+
+```json
+{
+    "customer_id": 1,
+    "subscription_id": 1,
+    "status": 1
+}
+```
+
+### Toggle Subscription Status
+
+To toggle a user's subscription status between active and inactive, send a JSON `PATCH` request to `http://localhost:3000/api/v1/subscriptions/` in the format:
+
+```json
+{
+  "customer_id": 1,
+  "subscription_id": 2
+}
+```
+
+If the subscription status is *active* ("1"), it will switch to *inactive* ("0"). If the subscription status is *inactive*, it will switch to *active*.
