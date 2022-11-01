@@ -1,0 +1,5 @@
+class CustomerTea < ApplicationRecord
+
+  
+
+end
