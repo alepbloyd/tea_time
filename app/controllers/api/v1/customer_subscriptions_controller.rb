@@ -17,12 +17,14 @@ class Api::V1::CustomerSubscriptionsController < ApplicationController
   end
 
   def update
-    customer_subscription = CustomerSubscription.find_by(customer_id: subscription_status_params[:customer_id], subscription_id: subscription_status_params[:subscription_id])
+    customer_subscription = CustomerSubscription.find_by(customer_id: params[:customer_id], subscription_id: params[:subscription_id])
 
     if customer_subscription.status == 1
       customer_subscription.update(status: 0)
+      render :json => {:message => "Subscription cancelled."}
     else
       customer_subscription.update(status: 1)
+      render :json => {:message => "Subscription activated."}
     end
   end
 
@@ -32,8 +34,8 @@ class Api::V1::CustomerSubscriptionsController < ApplicationController
     params.require(:customer_subscription).permit(:customer_id, :subscription_id, :status)
   end
 
-  def subscription_status_params
-    params.require(:subscription_status).permit(:customer_id, :subscription_id)
-  end
+  # def subscription_status_params
+  #   params.require(:subscription_status).permit(:customer_id, :subscription_id)
+  # end
 
 end
