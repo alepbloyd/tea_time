@@ -61,3 +61,8 @@ To toggle a user's subscription status between active and inactive, send a JSON 
 
 
 If the subscription status is *active* ("1"), it will switch to *inactive* ("0"). If the subscription status is *inactive*, it will switch to *active*.
+
+### Get All Subscriptions for a Customer
+
+To view all subscriptions for a customer, send a `GET` request in the format `http://localhost:3000/api/v1/subscriptions/:user_id`.
+
