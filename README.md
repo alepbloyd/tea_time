@@ -66,3 +66,4 @@ If the subscription status is *active* ("1"), it will switch to *inactive* ("0")
 
 To view all subscriptions for a customer, send a `GET` request in the format `http://localhost:3000/api/v1/subscriptions/:user_id`.
 
+![all-subs](https://user-images.githubusercontent.com/17027357/199342136-d4f35e58-535f-43e6-a499-bb6a30f96a57.png)
