@@ -12,6 +12,15 @@ To begin, clone this repository to your local machine, and run:
 
 to update and install gems/dependencies.
 
+To create and seed a database with random customers, subscriptions, and joins between them, run:
+
+```
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
+
+
 ## API Endpoints
 
 ### Create a New Customer
