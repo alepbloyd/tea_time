@@ -38,11 +38,11 @@ To create a new customer, send a JSON `POST` request to `http://localhost:3000/a
 }
 ```
 
-<img width="1127" alt="create-user" src="https://user-images.githubusercontent.com/17027357/199339878-30adbea2-3f27-4f5c-aa24-02f0b6e9c4f2.png">
+![create_customer](https://user-images.githubusercontent.com/17027357/199598896-92cb7749-43ca-4c81-9c04-b60e2616b89d.png)
 
 ### Subscribe Customer
 
-To subscribe an existing customer to an existing subscription, send a JSON `POST` request to `http://localhost:3000/api/v1/subscriptions/` in the format:
+To subscribe an existing customer to an existing subscription, send a JSON `POST` request to `http://localhost:3000/api/v1/customer_subscriptions/` in the format:
 
 ```json
 {
@@ -52,11 +52,11 @@ To subscribe an existing customer to an existing subscription, send a JSON `POST
 }
 ```
 
-![subscribe-customer](https://user-images.githubusercontent.com/17027357/199339899-6a7a630a-9cd8-4326-a31e-3150c4201e66.png)
+![create_customer_subscription](https://user-images.githubusercontent.com/17027357/199598988-1e38b6ff-6904-40ac-847d-0dbde006a27d.png)
 
 ### Toggle Subscription Status
 
-To toggle a user's subscription status between active and inactive, send a JSON `PATCH` request to `http://localhost:3000/api/v1/subscriptions/` in the format:
+To toggle a user's subscription status between active and inactive, send a JSON `PATCH` request to `http://localhost:3000/api/v1/customer_subscriptions/status` in the format:
 
 ```json
 {
@@ -65,14 +65,14 @@ To toggle a user's subscription status between active and inactive, send a JSON 
 }
 ```
 
-![activate-subscription](https://user-images.githubusercontent.com/17027357/199339939-e1df236c-f00a-4462-8023-736cf4fbfaf5.png)
-![cancel-subscription](https://user-images.githubusercontent.com/17027357/199339952-09c9d9cc-c83d-43de-be7f-8fe32ae9d56a.png)
-
+![cancelled](https://user-images.githubusercontent.com/17027357/199599329-d44e0c39-2e3b-4b5c-967c-fcb817ee9c84.png)
+![activated](https://user-images.githubusercontent.com/17027357/199599345-af57b2f1-7085-4b66-a3f4-996e5a951e24.png)
 
 If the subscription status is *active* ("1"), it will switch to *inactive* ("0"). If the subscription status is *inactive*, it will switch to *active*.
 
 ### Get All Subscriptions for a Customer
 
-To view all subscriptions for a customer, send a `GET` request in the format `http://localhost:3000/api/v1/subscriptions/:user_id`.
+To view all subscriptions for a customer, send a `GET` request in the format `http://localhost:3000/api/v1/customer_subscriptions/:user_id`.
 
-![all-subs](https://user-images.githubusercontent.com/17027357/199342136-d4f35e58-535f-43e6-a499-bb6a30f96a57.png)
+
+![customer_subscriptions](https://user-images.githubusercontent.com/17027357/199599070-ad6fbd33-080a-4081-8583-f57f7967bce9.png)
