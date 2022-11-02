@@ -46,7 +46,7 @@ describe 'Customer Subscriptions API' do
       subscription_id: subscription_1.id
     }
 
-    patch "/api/v1/customer_subscriptions/", headers: headers, params: JSON.generate( subscription_status_params)
+    patch "/api/v1/customer_subscriptions/status/", headers: headers, params: JSON.generate( subscription_status_params)
 
     c_s = CustomerSubscription.find_by(customer_id: cust_1.id, subscription_id: subscription_1.id)
 
@@ -75,7 +75,7 @@ describe 'Customer Subscriptions API' do
       subscription_id: subscription_1.id
     }
 
-    patch "/api/v1/customer_subscriptions/", headers: headers, params: JSON.generate(subscription_status_params)
+    patch "/api/v1/customer_subscriptions/status/", headers: headers, params: JSON.generate(subscription_status_params)
 
     c_s_postpatch = CustomerSubscription.find_by(customer_id: cust_1.id, subscription_id: subscription_1.id)
 
