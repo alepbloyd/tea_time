@@ -14,7 +14,7 @@ describe 'Customer Subscriptions API' do
 
     headers = {"CONTENT_TYPE" => "application/json"}
 
-    post "/api/v1/subscriptions/", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
+    post "/api/v1/customer_subscriptions/", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
 
     expect(response).to be_successful
 
@@ -36,7 +36,7 @@ describe 'Customer Subscriptions API' do
 
     headers = {"CONTENT_TYPE" => "application/json"}
 
-    post "/api/v1/subscriptions/", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
+    post "/api/v1/customer_subscriptions/", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
 
     expect(CustomerSubscription.count).to eq(1)
     expect(CustomerSubscription.last.status).to eq(1)
@@ -46,7 +46,7 @@ describe 'Customer Subscriptions API' do
       subscription_id: subscription_1.id
     }
 
-    patch "/api/v1/subscriptions/", headers: headers, params: JSON.generate( subscription_status_params)
+    patch "/api/v1/customer_subscriptions/", headers: headers, params: JSON.generate( subscription_status_params)
 
     c_s = CustomerSubscription.find_by(customer_id: cust_1.id, subscription_id: subscription_1.id)
 
@@ -65,7 +65,7 @@ describe 'Customer Subscriptions API' do
 
     headers = {"CONTENT_TYPE" => "application/json"}
 
-    post "/api/v1/subscriptions/", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
+    post "/api/v1/customer_subscriptions/", headers: headers, params: JSON.generate(customer_subscription: customer_subscription_params)
 
     c_s_prepatch = CustomerSubscription.find_by(customer_id: cust_1.id, subscription_id: subscription_1.id)
     expect(c_s_prepatch.status).to eq(0)
@@ -75,7 +75,7 @@ describe 'Customer Subscriptions API' do
       subscription_id: subscription_1.id
     }
 
-    patch "/api/v1/subscriptions/", headers: headers, params: JSON.generate(subscription_status_params)
+    patch "/api/v1/customer_subscriptions/", headers: headers, params: JSON.generate(subscription_status_params)
 
     c_s_postpatch = CustomerSubscription.find_by(customer_id: cust_1.id, subscription_id: subscription_1.id)
 
