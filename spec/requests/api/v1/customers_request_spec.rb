@@ -45,7 +45,7 @@ describe 'Customers API' do
 
     c2_s4 = CustomerSubscription.create(customer_id: cust_2.id, subscription_id: subscription_4.id, status: 0)
 
-    get "/api/v1/subscriptions/#{cust_1.id}"
+    get "/api/v1/customer_subscriptions/#{cust_1.id}"
 
     expect(response).to be_successful
 
